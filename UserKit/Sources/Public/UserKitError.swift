@@ -8,6 +8,11 @@
 
 import Foundation
 
+/// Error returned by all the completion methods of UserKits
+///
+/// - noUserFound: No user is found with the given identifier
+/// - connectionError: There was an error connecting. The wrapped Error is the NSError returned from the NSURLSession.dataTask call.
+/// - generic: Any internal error.
 public enum UserKitError: Error, Equatable {
     case noUserFound(identifier: Int)
     case connectionError(NSError)

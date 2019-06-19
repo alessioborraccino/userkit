@@ -31,6 +31,7 @@ extension Address: Codable {
         case longitude = "lng"
     }
     
+    //Implemented manually in order to directly save the geo json to the coordinates
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Address.CodingKeys.self)
         self.street = try container.decodeIfPresent(String.self, forKey: .street)
@@ -47,6 +48,7 @@ extension Address: Codable {
         }
     }
     
+    //Implemented manually in order to directly save the geo json to the coordinates
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Address.CodingKeys.self)
         try container.encodeIfPresent(street, forKey: .street)

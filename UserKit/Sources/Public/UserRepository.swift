@@ -24,6 +24,16 @@ public final class UserRepository {
 
 // MARK: - Public Methods
 public extension UserRepository {
+    
+    /**
+     Returns all the users registered from the UserKit Service.
+     
+     - Parameters:
+        - completion: The completion handler to call when the request is complete. This handler is executed on a background thread.
+        - result: Either contains an array of Users, or a UserKitError. Error is either .connectionError or .generic.
+     - Returns:
+        A token which can be used to cancel the request, by calling cancel().
+     */
     @discardableResult func getUsers(completion: @escaping (_ result: Result<[User], UserKitError>) -> Void) -> CancellableToken {
         return apiClient.start(GetUsersRequest(), resource: [User].self) { result in
             let result = result.mapError({UserKitError.make(from: $0)})
@@ -31,6 +41,16 @@ public extension UserRepository {
         }
     }
     
+    /**
+     Returns the user with the given identifier from the UserKit Service.
+     
+     - Parameters:
+        - identifier: The identifier of the User to retrieve
+        - completion: The completion handler to call when the request is complete. This handler is executed on a background thread
+        - result: Either contains the retrieved User, or a UserKitError. Error could be .generic, .connectionError or .userNotFound
+     - Returns:
+        A token which can be used to cancel the request, by calling cancel().
+     */
     @discardableResult func getUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
         return apiClient.start(GetUserRequest(userIdentifier: identifier), resource: User.self) { result in
             let result = result.mapError({UserKitError.make(from: $0, forUserIdentifiedBy: identifier)})
@@ -38,6 +58,15 @@ public extension UserRepository {
         }
     }
     
+    /**
+     Delete the user with the given identifier from the UserKit Service.
+     
+     - Parameters:
+        - completion: The completion handler to call when the request is complete. This handler is executed on a background thread.
+        - result: Returns Void when successful, or a UserKitError. Error is either .generic, .connectionError or .userNotFound
+     - Returns:
+        A token which can be used to cancel the request, by calling cancel().
+     */
     @discardableResult func deleteUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<Void, UserKitError>) -> Void) -> CancellableToken {
         return apiClient.start(DeleteUserRequest(userIdentifier: identifier), resource: CodableVoid.self) { result in
             let result = result
@@ -47,6 +76,18 @@ public extension UserRepository {
         }
     }
     
+    /**
+     Creates and register a new user to the UserKit Service, and returns it with a newly assigned identifier.
+     
+     - Parameters:
+        - newUser: The user which needs to be created
+        - completion: The completion handler to call when the request is complete. This handler is executed on a background thread.
+        - result: Either contains the new user, or a UserKitError. Error is either .generic, .connectionError, .userIdentifierShouldNotBePresent (Not implemented).
+     - Returns:
+        A token which can be used to cancel the request, by calling cancel().
+     - Attention:
+        This call is meant to be used with newly created user from the client, any user with already identifier will return an error (not implemented)
+     */
     @discardableResult func createUser(like newUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
         return apiClient.start(CreateUserRequest(newUser: newUser), resource: User.self) { result in
             let result = result.mapError({UserKitError.make(from: $0)})
@@ -54,6 +95,20 @@ public extension UserRepository {
         }
     }
     
+    /**
+     Updates the user with the given identifier, if found, mirroring all the data from the updatedUser.
+     If successful, the updated user will then have the same data as the updatedUser.
+     
+     - Parameters:
+        - identifier: The identifier of the User to update
+        - updatedUser: Contains all the data to update
+        - completion: The completion handler to call when the request is complete. This handler is executed on a background thread
+        - result: Either contains the updated User, or a UserKitError. Error could be .generic, .offline or .userNotFound
+     - Returns:
+        A token which can be used to cancel the request.
+     - Attention:
+        As Implemented now, the call is not able to delete fields, only to add them. (To be implemented)
+     */
     @discardableResult func updateUser(identifiedBy identifier: Int, to updatedUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
         
         let identifiedUser = updatedUser.identified(by: identifier)
