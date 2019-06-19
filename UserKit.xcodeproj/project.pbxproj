@@ -10,6 +10,11 @@
 		EA24FF8022BA28C800D60D2A /* UserKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA24FF7622BA28C800D60D2A /* UserKit.framework */; };
 		EA24FF8522BA28C800D60D2A /* UserKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF8422BA28C800D60D2A /* UserKitTests.swift */; };
 		EA24FF8722BA28C800D60D2A /* UserKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA24FF7922BA28C800D60D2A /* UserKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9122BA293B00D60D2A /* APIEndpoint.swift */; };
+		EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9322BA299D00D60D2A /* APIRequest.swift */; };
+		EA24FF9622BA29FF00D60D2A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9522BA29FF00D60D2A /* APIClient.swift */; };
+		EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */; };
+		EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9C22BA2B3800D60D2A /* Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		EA24FF7F22BA28C800D60D2A /* UserKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA24FF8422BA28C800D60D2A /* UserKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKitTests.swift; sourceTree = "<group>"; };
 		EA24FF8622BA28C800D60D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA24FF9122BA293B00D60D2A /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		EA24FF9322BA299D00D60D2A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		EA24FF9522BA29FF00D60D2A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		EA24FF9C22BA2B3800D60D2A /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,7 @@
 		EA24FF7822BA28C800D60D2A /* UserKit */ = {
 			isa = PBXGroup;
 			children = (
+				EA24FF9022BA290700D60D2A /* Sources */,
 				EA24FF7922BA28C800D60D2A /* UserKit.h */,
 				EA24FF7A22BA28C800D60D2A /* Info.plist */,
 			);
@@ -84,6 +95,42 @@
 				EA24FF8622BA28C800D60D2A /* Info.plist */,
 			);
 			path = UserKitTests;
+			sourceTree = "<group>";
+		};
+		EA24FF9022BA290700D60D2A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FF9B22BA2B0E00D60D2A /* Extensions */,
+				EA24FF9722BA2A9400D60D2A /* CoreNetworking */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EA24FF9722BA2A9400D60D2A /* CoreNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FF9822BA2AAB00D60D2A /* Protocols */,
+				EA24FF9122BA293B00D60D2A /* APIEndpoint.swift */,
+				EA24FF9322BA299D00D60D2A /* APIRequest.swift */,
+				EA24FF9522BA29FF00D60D2A /* APIClient.swift */,
+			);
+			path = CoreNetworking;
+			sourceTree = "<group>";
+		};
+		EA24FF9822BA2AAB00D60D2A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EA24FF9B22BA2B0E00D60D2A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FF9C22BA2B3800D60D2A /* Codable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +195,7 @@
 				TargetAttributes = {
 					EA24FF7522BA28C800D60D2A = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					EA24FF7E22BA28C800D60D2A = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */,
+				EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */,
+				EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */,
+				EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */,
+				EA24FF9622BA29FF00D60D2A /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +394,7 @@
 		EA24FF8B22BA28C800D60D2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.albo.com.UserKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +421,7 @@
 		EA24FF8C22BA28C800D60D2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +447,7 @@
 		EA24FF8E22BA28C800D60D2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HTJ99BR7X;
 				INFOPLIST_FILE = UserKitTests/Info.plist;
@@ -409,6 +466,7 @@
 		EA24FF8F22BA28C800D60D2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HTJ99BR7X;
 				INFOPLIST_FILE = UserKitTests/Info.plist;
