@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		EA24FF8022BA28C800D60D2A /* UserKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA24FF7622BA28C800D60D2A /* UserKit.framework */; };
-		EA24FF8522BA28C800D60D2A /* UserKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF8422BA28C800D60D2A /* UserKitTests.swift */; };
+		EA24FF8522BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF8422BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift */; };
 		EA24FF8722BA28C800D60D2A /* UserKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA24FF7922BA28C800D60D2A /* UserKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9122BA293B00D60D2A /* APIEndpoint.swift */; };
 		EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9322BA299D00D60D2A /* APIRequest.swift */; };
 		EA24FF9622BA29FF00D60D2A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9522BA29FF00D60D2A /* APIClient.swift */; };
 		EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */; };
 		EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9C22BA2B3800D60D2A /* Codable.swift */; };
+		EA24FFA022BA2DD700D60D2A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */; };
+		EA24FFA322BA2DED00D60D2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFA222BA2DED00D60D2A /* User.swift */; };
+		EA24FFA522BA2F0200D60D2A /* UserKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFA422BA2F0200D60D2A /* UserKitError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +35,16 @@
 		EA24FF7922BA28C800D60D2A /* UserKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserKit.h; sourceTree = "<group>"; };
 		EA24FF7A22BA28C800D60D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA24FF7F22BA28C800D60D2A /* UserKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA24FF8422BA28C800D60D2A /* UserKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKitTests.swift; sourceTree = "<group>"; };
+		EA24FF8422BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _UserRepositoryPlaygroundTests.swift; sourceTree = "<group>"; };
 		EA24FF8622BA28C800D60D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA24FF9122BA293B00D60D2A /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		EA24FF9322BA299D00D60D2A /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		EA24FF9522BA29FF00D60D2A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		EA24FF9C22BA2B3800D60D2A /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		EA24FFA222BA2DED00D60D2A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA24FFA422BA2F0200D60D2A /* UserKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKitError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +97,7 @@
 		EA24FF8322BA28C800D60D2A /* UserKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA24FF8422BA28C800D60D2A /* UserKitTests.swift */,
+				EA24FF8422BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift */,
 				EA24FF8622BA28C800D60D2A /* Info.plist */,
 			);
 			path = UserKitTests;
@@ -100,6 +106,7 @@
 		EA24FF9022BA290700D60D2A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EA24FF9E22BA2DBE00D60D2A /* Public */,
 				EA24FF9B22BA2B0E00D60D2A /* Extensions */,
 				EA24FF9722BA2A9400D60D2A /* CoreNetworking */,
 			);
@@ -131,6 +138,24 @@
 				EA24FF9C22BA2B3800D60D2A /* Codable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EA24FF9E22BA2DBE00D60D2A /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FFA122BA2DE300D60D2A /* Model */,
+				EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */,
+				EA24FFA422BA2F0200D60D2A /* UserKitError.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		EA24FFA122BA2DE300D60D2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FFA222BA2DED00D60D2A /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +269,12 @@
 			files = (
 				EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */,
 				EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */,
+				EA24FFA022BA2DD700D60D2A /* UserRepository.swift in Sources */,
 				EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */,
 				EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */,
 				EA24FF9622BA29FF00D60D2A /* APIClient.swift in Sources */,
+				EA24FFA522BA2F0200D60D2A /* UserKitError.swift in Sources */,
+				EA24FFA322BA2DED00D60D2A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA24FF8522BA28C800D60D2A /* UserKitTests.swift in Sources */,
+				EA24FF8522BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
