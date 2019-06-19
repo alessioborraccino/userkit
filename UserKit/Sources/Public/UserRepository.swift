@@ -28,13 +28,27 @@ public extension UserRepository {
             completion(result)
         }
     }
+    
+    func getUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) {
+        return apiClient.start(GetUserRequest(userIdentifier: identifier), resource: User.self) { result in
+            let result = result.mapError({UserKitError.make(from: $0)})
+            completion(result)
+        }
+    }
 }
 
 // MARK: - Requests
 extension UserRepository {
     struct GetUsersRequest: APIRequest {
-        typealias Resource = [User]
-        let resource: APIEndpoint = UserResource()
+        let endpoint: APIEndpoint = UserEndpoint()
+        let method = HTTPMethod.get
+    }
+    
+    struct GetUserRequest: APIRequest {
+        let userIdentifier: Int
+        var endpoint: APIEndpoint {
+            return UserEndpoint(userIdentifier: userIdentifier)
+        }
         let method = HTTPMethod.get
     }
 }
@@ -42,12 +56,22 @@ extension UserRepository {
 // MARK: - Resource
 private extension UserRepository {
     
-    struct UserResource: APIEndpoint {
+    struct UserEndpoint: APIEndpoint {
         
         private static let path = "users"
         
+        let userIdentifier: Int?
+        
         var path: String {
-            return UserResource.path
+            var path = UserEndpoint.path
+            if let userIdentifier = userIdentifier {
+                path.append("/\(userIdentifier)")
+            }
+            return path
+        }
+        
+        init(userIdentifier: Int? = nil) {
+            self.userIdentifier = userIdentifier
         }
     }
 }

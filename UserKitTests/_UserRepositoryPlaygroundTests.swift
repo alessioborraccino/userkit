@@ -18,13 +18,27 @@ class _UserRepositoryPlaygroundTests: XCTestCase {
         userRepository.getUsers { (result) in
             switch result {
             case .success(let users):
-                XCTAssertEqual(users.count, 10, "It retrieves and parses all the users" )
+                XCTAssertEqual(users.count, 10, "It retrieves and parses all the users")
                 expectation.fulfill()
             case .failure:
                 XCTFail("Should work")
             }
         }
         let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 2)
+        XCTAssert(waiterResult == .completed)
+    }
+    
+    func testGetExistingUser() {
+        let expectation = XCTestExpectation(description: "users")
+        userRepository.getUser(identifiedBy: 2) { (result) in
+            switch result {
+            case .success:
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should work")
+            }
+        }
+        let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
         XCTAssert(waiterResult == .completed)
     }
 }

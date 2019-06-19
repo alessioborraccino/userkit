@@ -17,7 +17,7 @@ enum HTTPMethod: String {
 }
 
 protocol APIRequest {
-    var resource: APIEndpoint { get }
+    var endpoint: APIEndpoint { get }
     var method: HTTPMethod { get }
     var body: Data? { get }
 }
@@ -31,7 +31,7 @@ extension APIRequest {
 extension APIRequest {
     
     var jsonUrlRequest: URLRequest? {
-        guard let url = resource.url else {
+        guard let url = endpoint.url else {
             fatalError("It should always create a url")
         }
         
