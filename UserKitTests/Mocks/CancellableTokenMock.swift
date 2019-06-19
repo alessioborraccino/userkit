@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import UserKit
+import UserKit
 
 final class CancellableTokenMock: CancellableToken {
     private(set) var didCallCancel: Bool  = false

@@ -8,6 +8,7 @@
 
 import CoreLocation.CLLocation
 
+//Represent the address of the users registered in UserKit.
 public struct Address {
     public let street: String?
     public let suite: String?

@@ -14,11 +14,9 @@ final class APIClientMock {
     private(set) var lastCompletion: Any?
 }
 
-// MARK: - ClientProtocol
-
 extension APIClientMock: APIClient {
     
-    func start<Model>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken where Model : Decodable  {
+    @discardableResult func start<Model>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken where Model : Decodable  {
         didCallStart = true
         lastRequest = request
         lastCompletion = completion

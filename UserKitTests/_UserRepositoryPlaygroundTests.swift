@@ -7,8 +7,10 @@
 //
 
 import XCTest
-@testable import UserKit
+import UserKit
 
+/// Used instead of an app just to debug the public sdk of the app while developing,
+/// not meant to be in the final tests.
 class _UserRepositoryPlaygroundTests: XCTestCase {
 
     private let userRepository = UserRepository()
@@ -115,7 +117,7 @@ class _UserRepositoryPlaygroundTests: XCTestCase {
             case .success:
                 XCTFail("Should return error")
             case .failure(let error):
-                //Updating a non existing user returns generic error because the backend crashes 
+                //Updating a non existing user returns generic error because the backend crashes
                 XCTAssert(error == UserKitError.generic)
                 expectation.fulfill()
             }

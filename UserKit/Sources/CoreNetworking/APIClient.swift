@@ -30,7 +30,7 @@ final class UserKitAPIClient: APIClient {
         self.session = session
     }
     
-    func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type = Model.self, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken {
+    @discardableResult func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type = Model.self, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken {
         
         guard let urlRequest = request.jsonUrlRequest else {
             fatalError("Should always get a urlRequest")

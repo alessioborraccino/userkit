@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Class used to access all the user related functions in UserKit service
 public final class UserRepository {
     
     private let apiClient: APIClient

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Used to cancel any request. Returned by all the methods called from UserRepository
 public protocol CancellableToken {
     func cancel()
 }

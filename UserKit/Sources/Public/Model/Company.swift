@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Represents the company where the users work in UserKit
 public struct Company {
     public let name: String?
     public let catchPhrase: String?

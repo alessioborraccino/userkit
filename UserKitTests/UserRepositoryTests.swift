@@ -25,24 +25,24 @@ class UserRepositoryTests: XCTestCase {
                 XCTAssertEqual(user.name, "Leanne Graham", "It returns the correct name")
                 expectation.fulfill()
             } catch {
-                XCTFail()
+                XCTFail("It should not return errors")
             }
         }
         
         let clientCompletion = apiClient.lastCompletion as? (Result<User, APIError>) -> Void
         clientCompletion?(.success(UserFixtureFactory.usersFromFile[0]))
         let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
-        XCTAssert(waiterResult == .completed)
+        XCTAssertEqual(waiterResult, .completed, "It fulfills the expectation")
     }
     
     func testGetUserStartsAndReturnsWithFailure() {
         let expectation = XCTestExpectation(description: "users")
         userRepository.getUser(identifiedBy: 1) { [unowned self] (result) in
-            XCTAssert(self.apiClient.lastRequest is UserRepository.GetUserRequest)
+            XCTAssert(self.apiClient.lastRequest is UserRepository.GetUserRequest, "It uses the right request")
             do {
                 _ = try result.get()
             } catch {
-                XCTAssert((error as? UserKitError) == UserKitError.noUserFound(identifier: 1))
+                XCTAssertEqual((error as? UserKitError), UserKitError.noUserFound(identifier: 1), "It returns the correct error")
                 expectation.fulfill()
             }
         }
@@ -50,6 +50,6 @@ class UserRepositoryTests: XCTestCase {
         let clientCompletion = apiClient.lastCompletion as? (Result<User, APIError>) -> Void
         clientCompletion?(.failure(APIError.noResourceFound))
         let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
-        XCTAssert(waiterResult == .completed)
+        XCTAssertEqual(waiterResult, .completed, "It fulfills the expectation")
     }
 }
