@@ -9,7 +9,7 @@
 import Foundation
 
 public struct User {
-    public let identifier: Int?
+    public private(set) var identifier: Int?
     public let name: String
     public let email: String
     public let userName: String
@@ -27,6 +27,12 @@ extension User {
         self.userName = userName
         self.phone = phone
         self.website = website
+    }
+    
+    func identified(by identifier: Int) -> User {
+        var user = self
+        user.identifier = identifier
+        return user
     }
 }
 

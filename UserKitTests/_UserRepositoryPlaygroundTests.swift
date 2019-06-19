@@ -73,4 +73,22 @@ class _UserRepositoryPlaygroundTests: XCTestCase {
         let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
         XCTAssert(waiterResult == .completed)
     }
+    
+    func testUpdateExistingUser() {
+        let expectation = XCTestExpectation(description: "users")
+        let user = User(name: "Alessio Borraccino", email: "email@email.com", userName: "Samantha")
+        userRepository.updateUser(identifiedBy: 3, to: user) { (result) in
+            switch result {
+            case .success(let user):
+                XCTAssert(user.identifier == 3)
+                XCTAssert(user.name == "Alessio Borraccino")
+                XCTAssert(user.email == "email@email.com")
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should work")
+            }
+        }
+        let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
+        XCTAssert(waiterResult == .completed)
+    }
 }
