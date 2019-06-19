@@ -87,6 +87,7 @@ While testing the endpoints, i found out some api inconsistencies:
 
 - No third party dependencies needed, being the safest way to avoid having different versions of sub-dependencies with client projects.
 - Repository is intended not to be a singleton, due to the fact that it has no shared state to care about, but just a wrapper.
+- The class _UserRepositoryPlaygroundTests_ would not be shipped with the framework, i left it just to show how i was testing the framework while developing. 
 
 ## Missing (due to time)
 
