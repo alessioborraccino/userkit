@@ -15,18 +15,24 @@ public struct User {
     public let userName: String
     public let phone: String?
     public let website: String?
+    public let address: Address?
+    public let company: Company?
 }
 
 extension User {
     public init(name: String, email: String, userName: String,
                 phone: String? = nil,
-                website: String? = nil) {
+                website: String? = nil,
+                address: Address? = nil,
+                company: Company? = nil) {
         self.identifier = nil
         self.name = name
         self.email = email
         self.userName = userName
         self.phone = phone
         self.website = website
+        self.address = address
+        self.company = company
     }
     
     func identified(by identifier: Int) -> User {
@@ -44,6 +50,10 @@ extension User: Codable {
         case userName = "username"
         case phone
         case website
+        case address
+        case company
     }
 }
+
+
 

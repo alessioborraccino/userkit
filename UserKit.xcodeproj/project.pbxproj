@@ -27,6 +27,8 @@
 		EA24FFBC22BA463900D60D2A /* users-corrupt.json in Resources */ = {isa = PBXBuildFile; fileRef = EA24FFBA22BA463900D60D2A /* users-corrupt.json */; };
 		EA24FFC022BA4AF400D60D2A /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFBF22BA4AF400D60D2A /* UserRepositoryTests.swift */; };
 		EA24FFC222BA4B8400D60D2A /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */; };
+		EA24FFC422BA4DD100D60D2A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC322BA4DD100D60D2A /* Address.swift */; };
+		EA24FFC622BA4DDC00D60D2A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC522BA4DDC00D60D2A /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		EA24FFBA22BA463900D60D2A /* users-corrupt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "users-corrupt.json"; sourceTree = "<group>"; };
 		EA24FFBF22BA4AF400D60D2A /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
 		EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
+		EA24FFC322BA4DD100D60D2A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		EA24FFC522BA4DDC00D60D2A /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				EA24FFA222BA2DED00D60D2A /* User.swift */,
+				EA24FFC322BA4DD100D60D2A /* Address.swift */,
+				EA24FFC522BA4DDC00D60D2A /* Company.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,8 +318,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA24FFC422BA4DD100D60D2A /* Address.swift in Sources */,
 				EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */,
 				EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */,
+				EA24FFC622BA4DDC00D60D2A /* Company.swift in Sources */,
 				EA24FFA022BA2DD700D60D2A /* UserRepository.swift in Sources */,
 				EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */,
 				EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */,
