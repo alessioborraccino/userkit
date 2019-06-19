@@ -10,7 +10,7 @@ import XCTest
 import UserKit
 
 /// Used instead of an app just to debug the public sdk of the app while developing,
-/// not meant to be in the final tests.
+/// but it is not meant to be in the final tests.
 class _UserRepositoryPlaygroundTests: XCTestCase {
 
     private let userRepository = UserRepository()

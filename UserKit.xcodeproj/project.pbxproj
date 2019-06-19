@@ -177,10 +177,9 @@
 		EA24FF9E22BA2DBE00D60D2A /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				EA24FFA422BA2F0200D60D2A /* UserKitError.swift */,
 				EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */,
+				EA24FFCD22BA5A7F00D60D2A /* Core */,
 				EA24FFA122BA2DE300D60D2A /* Model */,
-				EA24FFC722BA523000D60D2A /* CancellableToken.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -214,6 +213,15 @@
 				EA24FFCB22BA533E00D60D2A /* CancellableTokenMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		EA24FFCD22BA5A7F00D60D2A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EA24FFA422BA2F0200D60D2A /* UserKitError.swift */,
+				EA24FFC722BA523000D60D2A /* CancellableToken.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
