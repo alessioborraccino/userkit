@@ -25,6 +25,8 @@
 		EA24FFB822BA45E500D60D2A /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFB722BA45E500D60D2A /* URLSessionDataTaskMock.swift */; };
 		EA24FFBB22BA463900D60D2A /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = EA24FFB922BA463900D60D2A /* users.json */; };
 		EA24FFBC22BA463900D60D2A /* users-corrupt.json in Resources */ = {isa = PBXBuildFile; fileRef = EA24FFBA22BA463900D60D2A /* users-corrupt.json */; };
+		EA24FFC022BA4AF400D60D2A /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFBF22BA4AF400D60D2A /* UserRepositoryTests.swift */; };
+		EA24FFC222BA4B8400D60D2A /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		EA24FFB722BA45E500D60D2A /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		EA24FFB922BA463900D60D2A /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		EA24FFBA22BA463900D60D2A /* users-corrupt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "users-corrupt.json"; sourceTree = "<group>"; };
+		EA24FFBF22BA4AF400D60D2A /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
+		EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,12 +115,13 @@
 		EA24FF8322BA28C800D60D2A /* UserKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA24FFB422BA459D00D60D2A /* Mocks */,
-				EA24FFB122BA455900D60D2A /* Fixtures */,
-				EA24FF8422BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift */,
-				EA24FFAD22BA43B600D60D2A /* APIRequestTests.swift */,
-				EA24FFAF22BA451500D60D2A /* APIClientTests.swift */,
 				EA24FF8622BA28C800D60D2A /* Info.plist */,
+				EA24FF8422BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift */,
+				EA24FFAF22BA451500D60D2A /* APIClientTests.swift */,
+				EA24FFAD22BA43B600D60D2A /* APIRequestTests.swift */,
+				EA24FFBF22BA4AF400D60D2A /* UserRepositoryTests.swift */,
+				EA24FFB122BA455900D60D2A /* Fixtures */,
+				EA24FFB422BA459D00D60D2A /* Mocks */,
 			);
 			path = UserKitTests;
 			sourceTree = "<group>";
@@ -124,9 +129,9 @@
 		EA24FF9022BA290700D60D2A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EA24FF9E22BA2DBE00D60D2A /* Public */,
-				EA24FF9B22BA2B0E00D60D2A /* Extensions */,
 				EA24FF9722BA2A9400D60D2A /* CoreNetworking */,
+				EA24FF9B22BA2B0E00D60D2A /* Extensions */,
+				EA24FF9E22BA2DBE00D60D2A /* Public */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -161,9 +166,9 @@
 		EA24FF9E22BA2DBE00D60D2A /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				EA24FFA122BA2DE300D60D2A /* Model */,
-				EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */,
 				EA24FFA422BA2F0200D60D2A /* UserKitError.swift */,
+				EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */,
+				EA24FFA122BA2DE300D60D2A /* Model */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			children = (
 				EA24FFB522BA45C300D60D2A /* URLSessionMock.swift */,
 				EA24FFB722BA45E500D60D2A /* URLSessionDataTaskMock.swift */,
+				EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -322,10 +328,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA24FFB622BA45C300D60D2A /* URLSessionMock.swift in Sources */,
+				EA24FFC222BA4B8400D60D2A /* APIClientMock.swift in Sources */,
 				EA24FFB022BA451500D60D2A /* APIClientTests.swift in Sources */,
 				EA24FFB322BA456700D60D2A /* UserFixtureFactory.swift in Sources */,
 				EA24FFAE22BA43B600D60D2A /* APIRequestTests.swift in Sources */,
 				EA24FF8522BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift in Sources */,
+				EA24FFC022BA4AF400D60D2A /* UserRepositoryTests.swift in Sources */,
 				EA24FFB822BA45E500D60D2A /* URLSessionDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

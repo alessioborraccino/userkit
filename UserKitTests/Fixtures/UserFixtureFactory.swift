@@ -6,7 +6,7 @@
 //  Copyright © 2019 Alessio Borraccino. All rights reserved.
 //
 
-import Foundation
+@testable import UserKit
 
 final class UserFixtureFactory {
     static var usersDataFromFile: Data? = {
@@ -29,5 +29,14 @@ final class UserFixtureFactory {
         }
         
         return data
+    }()
+    
+    static var usersFromFile: [User] = {
+        guard
+            let data = usersDataFromFile,
+            let users = try? [User].decodeAsJson(from: data) else {
+                return []
+        }
+        return users
     }()
 }
