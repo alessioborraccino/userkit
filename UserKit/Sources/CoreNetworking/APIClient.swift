@@ -9,6 +9,7 @@
 import Foundation
 
 enum APIError: Error {
+    case noResourceFound
     case couldNotParseResult
     case connectionError(NSError)
 }
@@ -38,7 +39,16 @@ final class UserKitAPIClient: APIClient {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             
             switch (data, response, error) {
-            case (let data?, _, nil):
+            case (let data?, let response?, nil):
+                
+                guard let response = response as? HTTPURLResponse else {
+                    fatalError("Should always be a httpUrlResponse")
+                }
+                
+                guard response.statusCode != 404 else {
+                    completion(.failure(APIError.noResourceFound))
+                    return
+                }
                 
                 guard let model = try? Model.decodeAsJson(from: data) else {
                     completion(.failure(APIError.couldNotParseResult))

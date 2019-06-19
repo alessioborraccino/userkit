@@ -32,7 +32,7 @@ public extension UserRepository {
     
     func getUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) {
         apiClient.start(GetUserRequest(userIdentifier: identifier), resource: User.self) { result in
-            let result = result.mapError({UserKitError.make(from: $0)})
+            let result = result.mapError({UserKitError.make(from: $0, forUserIdentifiedBy: identifier)})
             completion(result)
         }
     }
@@ -41,7 +41,7 @@ public extension UserRepository {
         apiClient.start(DeleteUserRequest(userIdentifier: identifier), resource: CodableVoid.self) { result in
             let result = result
                 .map { $0.void }
-                .mapError {UserKitError.make(from: $0)}
+                .mapError {UserKitError.make(from: $0, forUserIdentifiedBy: identifier)}
             completion(result)
         }
     }
@@ -57,7 +57,7 @@ public extension UserRepository {
         
         let identifiedUser = updatedUser.identified(by: identifier)
         apiClient.start(UpdateUserRequest(updatedUser: identifiedUser), resource: User.self) { result in
-            let result = result.mapError({UserKitError.make(from: $0)})
+            let result = result.mapError({UserKitError.make(from: $0, forUserIdentifiedBy: identifier)})
             completion(result)
         }
     }
