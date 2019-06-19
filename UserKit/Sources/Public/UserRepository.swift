@@ -45,6 +45,13 @@ public extension UserRepository {
             completion(result)
         }
     }
+    
+    func createUser(like newUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void)  {
+        return apiClient.start(CreateUserRequest(newUser: newUser), resource: User.self) { result in
+            let result = result.mapError({UserKitError.make(from: $0)})
+            completion(result)
+        }
+    }
 }
 
 // MARK: - Requests
@@ -68,6 +75,17 @@ extension UserRepository {
             return UserEndpoint(userIdentifier: userIdentifier)
         }
         let method = HTTPMethod.delete
+    }
+    
+    struct CreateUserRequest: APIRequest {
+        typealias Resource = User
+        
+        let newUser: User
+        let endpoint: APIEndpoint = UserEndpoint()
+        let method = HTTPMethod.post
+        var body: Data? {
+            return try? newUser.encodeAsJson()
+        }
     }
 }
 

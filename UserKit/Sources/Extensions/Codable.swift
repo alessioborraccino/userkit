@@ -14,3 +14,10 @@ extension Decodable {
         return try decoder.decode(Self.self, from: from)
     }
 }
+
+extension Encodable {
+    func encodeAsJson() throws -> Data {
+        let encoder = JSONEncoder()
+        return try encoder.encode(self)
+    }
+}
