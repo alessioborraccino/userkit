@@ -15,7 +15,7 @@ enum APIError: Error, Equatable {
 }
 
 protocol APIClient {
-    func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void)
+    func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken
 }
 
 final class UserKitAPIClient: APIClient {
@@ -30,7 +30,7 @@ final class UserKitAPIClient: APIClient {
         self.session = session
     }
     
-    func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type = Model.self, completion: @escaping (Result<Model, APIError>) -> Void) {
+    func start<Model: Decodable>(_ request: APIRequest, resource: Model.Type = Model.self, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken {
         
         guard let urlRequest = request.jsonUrlRequest else {
             fatalError("Should always get a urlRequest")
@@ -63,5 +63,6 @@ final class UserKitAPIClient: APIClient {
             }
         }
         task.resume()
+        return task
     }
 }

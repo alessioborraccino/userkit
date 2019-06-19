@@ -23,22 +23,22 @@ public final class UserRepository {
 
 // MARK: - Public Methods
 public extension UserRepository {
-    func getUsers(completion: @escaping (_ result: Result<[User], UserKitError>) -> Void) {
-        apiClient.start(GetUsersRequest(), resource: [User].self) { result in
+    @discardableResult func getUsers(completion: @escaping (_ result: Result<[User], UserKitError>) -> Void) -> CancellableToken {
+        return apiClient.start(GetUsersRequest(), resource: [User].self) { result in
             let result = result.mapError({UserKitError.make(from: $0)})
             completion(result)
         }
     }
     
-    func getUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) {
-        apiClient.start(GetUserRequest(userIdentifier: identifier), resource: User.self) { result in
+    @discardableResult func getUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
+        return apiClient.start(GetUserRequest(userIdentifier: identifier), resource: User.self) { result in
             let result = result.mapError({UserKitError.make(from: $0, forUserIdentifiedBy: identifier)})
             completion(result)
         }
     }
     
-    func deleteUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<Void, UserKitError>) -> Void) {
-        apiClient.start(DeleteUserRequest(userIdentifier: identifier), resource: CodableVoid.self) { result in
+    @discardableResult func deleteUser(identifiedBy identifier: Int, completion: @escaping (_ result: Result<Void, UserKitError>) -> Void) -> CancellableToken {
+        return apiClient.start(DeleteUserRequest(userIdentifier: identifier), resource: CodableVoid.self) { result in
             let result = result
                 .map { $0.void }
                 .mapError {UserKitError.make(from: $0, forUserIdentifiedBy: identifier)}
@@ -46,17 +46,17 @@ public extension UserRepository {
         }
     }
     
-    func createUser(like newUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void)  {
-        apiClient.start(CreateUserRequest(newUser: newUser), resource: User.self) { result in
+    @discardableResult func createUser(like newUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
+        return apiClient.start(CreateUserRequest(newUser: newUser), resource: User.self) { result in
             let result = result.mapError({UserKitError.make(from: $0)})
             completion(result)
         }
     }
     
-    func updateUser(identifiedBy identifier: Int, to updatedUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) {
+    @discardableResult func updateUser(identifiedBy identifier: Int, to updatedUser: User, completion: @escaping (_ result: Result<User, UserKitError>) -> Void) -> CancellableToken {
         
         let identifiedUser = updatedUser.identified(by: identifier)
-        apiClient.start(UpdateUserRequest(updatedUser: identifiedUser), resource: User.self) { result in
+        return apiClient.start(UpdateUserRequest(updatedUser: identifiedUser), resource: User.self) { result in
             let result = result.mapError({UserKitError.make(from: $0, forUserIdentifiedBy: identifier)})
             completion(result)
         }

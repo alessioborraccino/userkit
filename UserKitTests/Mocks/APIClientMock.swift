@@ -18,9 +18,10 @@ final class APIClientMock {
 
 extension APIClientMock: APIClient {
     
-    func start<Model>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void) where Model : Decodable {
+    func start<Model>(_ request: APIRequest, resource: Model.Type, completion: @escaping (Result<Model, APIError>) -> Void) -> CancellableToken where Model : Decodable  {
         didCallStart = true
         lastRequest = request
         lastCompletion = completion
+        return CancellableTokenMock()
     }
 }

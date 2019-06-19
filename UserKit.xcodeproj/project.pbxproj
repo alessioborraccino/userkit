@@ -29,6 +29,9 @@
 		EA24FFC222BA4B8400D60D2A /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */; };
 		EA24FFC422BA4DD100D60D2A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC322BA4DD100D60D2A /* Address.swift */; };
 		EA24FFC622BA4DDC00D60D2A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC522BA4DDC00D60D2A /* Company.swift */; };
+		EA24FFC822BA523000D60D2A /* CancellableToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC722BA523000D60D2A /* CancellableToken.swift */; };
+		EA24FFCA22BA52E800D60D2A /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFC922BA52E800D60D2A /* URLSessionDataTask.swift */; };
+		EA24FFCC22BA533E00D60D2A /* CancellableTokenMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA24FFCB22BA533E00D60D2A /* CancellableTokenMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		EA24FFC322BA4DD100D60D2A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		EA24FFC522BA4DDC00D60D2A /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		EA24FFC722BA523000D60D2A /* CancellableToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableToken.swift; sourceTree = "<group>"; };
+		EA24FFC922BA52E800D60D2A /* URLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
+		EA24FFCB22BA533E00D60D2A /* CancellableTokenMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableTokenMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				EA24FF9922BA2AD700D60D2A /* URLSessionProtocol.swift */,
+				EA24FFC922BA52E800D60D2A /* URLSessionDataTask.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				EA24FFA422BA2F0200D60D2A /* UserKitError.swift */,
 				EA24FF9F22BA2DD700D60D2A /* UserRepository.swift */,
 				EA24FFA122BA2DE300D60D2A /* Model */,
+				EA24FFC722BA523000D60D2A /* CancellableToken.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 				EA24FFB522BA45C300D60D2A /* URLSessionMock.swift */,
 				EA24FFB722BA45E500D60D2A /* URLSessionDataTaskMock.swift */,
 				EA24FFC122BA4B8400D60D2A /* APIClientMock.swift */,
+				EA24FFCB22BA533E00D60D2A /* CancellableTokenMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -321,8 +330,10 @@
 				EA24FFC422BA4DD100D60D2A /* Address.swift in Sources */,
 				EA24FF9422BA299D00D60D2A /* APIRequest.swift in Sources */,
 				EA24FF9222BA293B00D60D2A /* APIEndpoint.swift in Sources */,
+				EA24FFCA22BA52E800D60D2A /* URLSessionDataTask.swift in Sources */,
 				EA24FFC622BA4DDC00D60D2A /* Company.swift in Sources */,
 				EA24FFA022BA2DD700D60D2A /* UserRepository.swift in Sources */,
+				EA24FFC822BA523000D60D2A /* CancellableToken.swift in Sources */,
 				EA24FF9A22BA2AD700D60D2A /* URLSessionProtocol.swift in Sources */,
 				EA24FF9D22BA2B3800D60D2A /* Codable.swift in Sources */,
 				EA24FF9622BA29FF00D60D2A /* APIClient.swift in Sources */,
@@ -343,6 +354,7 @@
 				EA24FF8522BA28C800D60D2A /* _UserRepositoryPlaygroundTests.swift in Sources */,
 				EA24FFC022BA4AF400D60D2A /* UserRepositoryTests.swift in Sources */,
 				EA24FFB822BA45E500D60D2A /* URLSessionDataTaskMock.swift in Sources */,
+				EA24FFCC22BA533E00D60D2A /* CancellableTokenMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
