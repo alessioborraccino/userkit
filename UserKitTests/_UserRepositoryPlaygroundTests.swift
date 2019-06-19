@@ -14,7 +14,7 @@ class _UserRepositoryPlaygroundTests: XCTestCase {
     private let userRepository = UserRepository()
     
     func testGetUsers() {
-        let expectation = XCTestExpectation(description: "users")
+        let expectation = XCTestExpectation(description: "get-users")
         userRepository.getUsers { (result) in
             switch result {
             case .success(let users):
@@ -29,8 +29,22 @@ class _UserRepositoryPlaygroundTests: XCTestCase {
     }
     
     func testGetExistingUser() {
-        let expectation = XCTestExpectation(description: "users")
+        let expectation = XCTestExpectation(description: "get-user-2")
         userRepository.getUser(identifiedBy: 2) { (result) in
+            switch result {
+            case .success:
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Should work")
+            }
+        }
+        let waiterResult = XCTWaiter.wait(for: [expectation], timeout: 3)
+        XCTAssert(waiterResult == .completed)
+    }
+    
+    func testDeleteExistingUser() {
+        let expectation = XCTestExpectation(description: "delete-user-3")
+        userRepository.deleteUser(identifiedBy: 3) { (result) in
             switch result {
             case .success:
                 expectation.fulfill()
