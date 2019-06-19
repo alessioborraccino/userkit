@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum APIError: Error {
+enum APIError: Error, Equatable {
     case noResourceFound
     case couldNotParseResult
     case connectionError(NSError)
